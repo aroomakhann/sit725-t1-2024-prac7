@@ -1,0 +1,23 @@
+{
+  "name": "sit725-prac3",
+  "version": "1.0.0",
+  "description": "Practical task for 3.2P",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aroomakhann/sit725-2024-prac3.git"
+  },
+  "author": "Arooma Khan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aroomakhann/sit725-2024-prac3/issues"
+  },
+  "homepage": "https://github.com/aroomakhann/sit725-2024-prac3#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
