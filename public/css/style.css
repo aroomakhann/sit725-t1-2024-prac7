@@ -1,0 +1,30 @@
+.navbar {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #37909e;
+}
+
+.user-image-size {
+    height: 80px;
+}
+
+.main-body {
+    background-color: #a2d6de;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.materialboxed-image {
+    margin: 0 auto;
+    height: 600px;
+}
+
+.click-me-button {
+    background-color: #37909e;
+    margin-top: 50px;
+}
+
+h1 {
+    text-align:center;
+    font-family: cursive;
+}
+
