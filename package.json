@@ -1,7 +1,7 @@
 {
-  "name": "sit725-prac3",
+  "name": "sit725-prac4",
   "version": "1.0.0",
-  "description": "Practical task for 3.2P",
+  "description": "Practical task for 4.2P",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aroomakhann/sit725-2024-prac3.git"
+    "url": "git+https://github.com/aroomakhann/sit725-t1-2024-prac4.git"
   },
   "author": "Arooma Khan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aroomakhann/sit725-2024-prac3/issues"
+    "url": "https://github.com/aroomakhann/sit725-t1-2024-prac4/issues"
   },
-  "homepage": "https://github.com/aroomakhann/sit725-2024-prac3#readme",
+  "homepage": "https://github.com/aroomakhann/sit725-t1-2024-prac4#readme",
   "dependencies": {
     "express": "^4.19.2"
   }
