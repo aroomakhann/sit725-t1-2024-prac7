@@ -55,3 +55,20 @@ $(document).ready(function () {
         submitForm();
     })
 })
+
+const getParis = () => {
+    $.get('/api/paris', (response) => {
+        if(response.statusCode==200) {
+            addParis (response.data);
+        }
+    })
+}
+
+$(document).ready(function() {
+    $('.materialboxed').materialbox();
+    $('#formSubmit').click(()=> {
+        submitForm();
+    })
+    getProjects();
+    $('.modal').modal();
+});
