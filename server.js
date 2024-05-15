@@ -4,28 +4,6 @@ var app = express ()
 const uri = "mongodb+srv://aroomakhan:monday122@cluster0.uklxfa9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 var port = process.env.port || 5500;
 
-const cardList = [ 
-    { 
-        title: "Caret", 
-        image: "images/@soffairys.jpeg",  
-        link: "About Caret", 
-        description: "Basic information about Caret" 
-    },  
-    { 
-        title: "Le Relais de l’Entrecôte", 
-        image: "images/Red wine, entrecote and french fries @ Le Relais de L'entrecôte - Paris, France.jpeg", 
-        link: "About Le Relais de l’Entrecôte", 
-        description: "Basic information about Le Relais De L’Entrecôte" 
-    }, 
-    { 
-        title: "Cedric Grolet",  
-        image: "images/croissant.jpeg", 
-        link: "About Cedric Grolet", 
-        description: "Basic information about Cedric Grolet"
-    }
-]; 
-
-
 let collection;
 app.use(express.static(__dirname+'/public'))
 app.use(express.json());
