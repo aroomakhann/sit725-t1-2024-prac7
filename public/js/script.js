@@ -20,6 +20,27 @@ const addCards = (items) => {
     });
 };
 
+const cardList = [ 
+    { 
+        title: "Caret", 
+        image: "images/@soffairys.jpeg",  
+        link: "About Caret", 
+        description: "Basic information about Caret" 
+    },  
+    { 
+        title: "Le Relais de l’Entrecôte", 
+        image: "images/Red wine, entrecote and french fries @ Le Relais de L'entrecôte - Paris, France.jpeg", 
+        link: "About Le Relais de l’Entrecôte", 
+        description: "Basic information about Le Relais De L’Entrecôte" 
+    }, 
+    { 
+        title: "Cedric Grolet",  
+        image: "images/croissant.jpeg", 
+        link: "About Cedric Grolet", 
+        description: "Basic information about Cedric Grolet"
+    }
+]; 
+
 function formSubmitted() {
     let formData = {
         first_name: $('#first_name').val(),
