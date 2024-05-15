@@ -32,7 +32,6 @@ app.use(express.json());
 app.use(express.json()); app.use(express.urlencoded({extended: false}));
 
 
-// MongoClient with MongoClient object for stable API
 const client = new MongoClient(uri, {
     serverApi: {
         version: ServerApiVersion.v1,
