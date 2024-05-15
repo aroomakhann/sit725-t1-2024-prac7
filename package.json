@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/aroomakhann/sit725-t1-2024-prac4#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongodb": "^6.6.1"
   }
 }
