@@ -1,19 +1,18 @@
-var express = require ("express") 
+var express = require("express");
 const { MongoClient, ServerApiVersion } = require('mongodb');
-var app = express ()
+var app = express();
 const uri = "mongodb+srv://aroomakhan:monday122@cluster0.uklxfa9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-var port = process.env.port || 5500;
+var port = process.env.PORT || 3000;
 
 let collection;
-app.use(express.static(__dirname+'/public'))
-app.use(express.json());
-app.use(express.json()); app.use(express.urlencoded({extended: false}));
 
+app.use(express.static(__dirname + '/public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 const client = new MongoClient(uri, {
     serverApi: {
         version: ServerApiVersion.v1,
-        useNewUrlParser: true,
         strict: true,
         deprecationErrors: true,
     }
@@ -23,57 +22,43 @@ async function runDBConnection() {
     try {
         await client.connect();
         collection = client.db('Restaurants').collection('Paris');
-        console.log("MongoDB connected successfully!");
+        console.log(collection);
     } catch (ex) {
-        console.error("Failed to connect to MongoDB", ex);
+        console.error(ex);
     }
 }
 
 runDBConnection();
 
-app.get('/', function (req,res) {
-    res.render('index.html');
+app.get('/', (req, res) => {
+    res.render("index.html");
 });
 
 app.get('/api/paris', (req, res) => {
-    res.json({ statusCode: 200, data: cardList, message: "Success" })
-});
-
-app.get('/', async (req, res) => {
     getAllParis((err, result) => {
         if (!err) {
-            res.json({ statusCode: 200, data: result, message: "Retrieved all Paris data successfully" });
-        } else {
-            console.error("Error fetching Paris data:", err);
-            res.status(500).json({ statusCode: 500, message: "Error" });
+            res.json({ statusCode: 200, message: "data retrieved" });
         }
     });
 });
 
 app.post('/api/paris', (req, res) => {
-    let Paris = req.body;
-     collection.insertOne(Paris, (err, result) => {
+    let parisData = req.body;
+     postParis(parisData, (err, result) => {
         if (!err) {
-            res.status(201).json({ statusCode: 201, data: result.ops, message: "Paris data added successfully" });
-        } else {
-            console.error("There was an error in posting Paris data:", err);
-            res.status(500).json({ statusCode: 500, message: "Error" });
+            res.status(201).json({ statusCode: 201, data: result, message: "Form submitted successfully!" });
         }
     });
 });
 
-function postParis(parisData, callback) {
-    collection.insertOne(parisData, (err, result) => {
-        if (err) {
-            console.error("Error inserting Paris data:", err);
-            callback(err);
-        } else {
-            callback(null, result.ops); 
-        }
-    });
+function postParis(paris, callback) {
+    collection.insertOne(paris, callback); 
 }
 
+function getAllParis(callback){
+    collection.find({}).toArray(callback);
+}
 
-app.listen(port, ()=>{
-    console.log("App listening to:" +port)
-})
+app.listen(port, () => {
+    console.log("App listening to: " + port);
+});

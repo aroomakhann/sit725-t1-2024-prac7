@@ -20,65 +20,41 @@ const addCards = (items) => {
     });
 };
 
-const cardList = [ 
-    { 
-        title: "Caret", 
-        image: "images/@soffairys.jpeg",  
-        link: "About Caret", 
-        description: "Basic information about Caret" 
-    },  
-    { 
-        title: "Le Relais de l’Entrecôte", 
-        image: "images/Red wine, entrecote and french fries @ Le Relais de L'entrecôte - Paris, France.jpeg", 
-        link: "About Le Relais de l’Entrecôte", 
-        description: "Basic information about Le Relais De L’Entrecôte" 
-    }, 
-    { 
-        title: "Cedric Grolet",  
-        image: "images/croissant.jpeg", 
-        link: "About Cedric Grolet", 
-        description: "Basic information about Cedric Grolet"
-    }
-]; 
-
-function formSubmitted() {
+function formSubmitted () {
     let formData = {
-        first_name: $('#first_name').val(),
-        last_name: $('#last_name').val(),
+        name_rest: $('#name_rest').val(),
+        desc_rest: $('#desc_rest').val(),
         review: $('#review').val(),
         email: $('#email').val()
-    };
+    };    
 
-    console.log(formData);
+    console.log("Form Data Submitted: ", formData);
     postParis(formData);
 };
 
-function postParis(formData) {
+function postParis(paris) {
     $.ajax({
         url: '/api/paris',
         type: 'POST',
-        data: formData,
+        data: paris,
         success: (result) => {
-            if (result.statusCode === 200) {
-                alert('Successfully posted Paris data. Horray');
+            if (result.statusCode === 201) {
+                alert('Form submitted successfully!');
             }
         },
-        error: (err) => {
-            console.error('Error in posting the Paris data:', err);
-            alert('Error in Posting Data :(');
-        }
     });
 }
 
-function getAllParis() {
+function getAllParis(){
     $.get('/api/paris', (response) => {
+        console.log('Response: '+response);
         if (response.statusCode === 200) {
             addCards(response.data);
         }
     });
-}
+  }
 
-$(document).ready(function () {
+  $(document).ready(function () {
     $('.materialboxed').materialbox();
     $('#formSubmit').click(() => {
         formSubmitted();
@@ -89,3 +65,4 @@ $(document).ready(function () {
     getAllParis();
     $('.modal').modal();
 });
+
