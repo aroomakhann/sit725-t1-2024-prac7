@@ -20,17 +20,17 @@ const addCards = (items) => {
     });
 };
 
-function formSubmitted () {
-    let formData = {
-        name_rest: $('#name_rest').val(),
-        desc_rest: $('#desc_rest').val(),
-        review: $('#review').val(),
-        email: $('#email').val()
-    };    
-
+const submitForm = () => {
+    let formData = {};
+    formData.title = $("#title").val();
+    formData.subTitle = $("#subTitle").val();
+    formData.path = $("#path").val();
+    formData.description = $("#description").val();
+  
     console.log("Form Data Submitted: ", formData);
+  
     postParis(formData);
-};
+  };
 
 function postParis(paris) {
     $.ajax({
@@ -38,7 +38,7 @@ function postParis(paris) {
         type: 'POST',
         data: paris,
         success: (result) => {
-            if (result.statusCode === 201) {
+            if (result.statusCode === 200) {
                 alert('Form submitted successfully!');
             }
         },
@@ -57,7 +57,7 @@ function getAllParis(){
   $(document).ready(function () {
     $('.materialboxed').materialbox();
     $('#formSubmit').click(() => {
-        formSubmitted();
+        submitForm();
     });
     $('#clickMeButton').click(() => {
         $('.modal').modal('open'); 

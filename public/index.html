@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SIT 725 Prac 4</title>
-    <meta name="description" content="Add A Database">
+    <title>SIT 725 Prac 5</title>
+    <meta name="description" content="MVC">
     <meta name="author" content="Arooma Khan">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -18,107 +18,63 @@
     <!-- Navigation Bar -->
     <nav>
         <div class="nav-wrapper navbar">
-            <a href="#" class="brand-logo"><img class="user-image-size" src="images/macaron_PNG56.png" /></a>
+            <a href="#" class="brand-logo"><img class="user-image-size" src="images/macaron_PNG56.png" alt="Brand Logo"></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a target="_blank" href="https://littlefrenchheart.com/the-romance-of-paris/">Paris Story</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Text Part -->
+    <!-- Main Content -->
     <main class="main-body">
-        <div class="container" id="card-section">
+        <div class="container">
             <div class="row">
                 <div class="col s12 center-align">
                     <h1 id="heading">Food Diaries</h1>
                     <p class="flow-text">This is a website that will present the three most popular food places in Paris</p>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col s12 center-align">
-                    <img class="materialboxed materialboxed-image" src="images/Paris wee.jpeg">
+                    <img class="materialboxed materialboxed-image" src="images/Paris wee.jpeg" alt="Paris Image">
                 </div>
-
-                <!-- Button -->
+            </div>
+            <div class="row">
                 <div class="col s12 center-align">
-                    <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton"
-                        data-target="modal1"><i class="material-icons left">auto_fix_high</i>Click Me</a>
+                    <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1">
+                        <i class="material-icons left">auto_fix_high</i>Click Me</a>
                 </div>
-
-                <!-- Card about Caret -->
-                <div class="col s4 center-align">
-                    <div class="card small">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="images/@soffairys.jpeg" alt="Caret">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Caret<i class="material-icons right">more_vert</i></span>
-                            <p><a href="#">About Caret</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Caret is famous for their delicious hot chocolate. It is a thick texture and perfect to dip your croissants in.<i class="material-icons right">close</i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card about Le Relais de l’Entrecôte -->
-                <div class="col s4 center-align">
-                    <div class="card small">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="images/Red wine, entrecote and french fries @ Le Relais de L'entrecôte - Paris, France.jpeg"
-                                alt="Le Relais de l’Entrecôte">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Le Relais de l’Entrecôte<i class="material-icons right">more_vert</i></span>
-                            <p><a href="#">About Le Relais de l’Entrecôte</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">For less then 30 euros, you will be introduced to the best steaks and frites. It comes with a complementary walnut salad.<i class="material-icons right">close</i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card about Cedric Grolet -->
-                <div class="col s4 center-align">
-                    <div class="card small">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="images/croissant.jpeg" alt="Cedric Grolet">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Cedric Grolet<i class="material-icons right">more_vert</i></span>
-                            <p><a href="#">About Cedric Grolet</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Cedric is a titok creator that has become famous with his extrodinary skills in Pâtisserie.<i class="material-icons right">close</i></span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
 
+
+        <!-- Card Section -->
+        <div class="container" id="card-section"></div>
+
         <!-- Modal Structure -->
         <div id="modal1" class="modal modal-fixed-footer">
-            <div class="modal-content">
+            <div class="row modal-content">
                 <form class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input placeholder="Enter Name" id="name_rest" type="text" class="validate">
-                            <label for="name_rest">Name of Restaurant</label>
+                            <input placeholder="Enter Title" id="title" type="text" class="validate">
+                            <label for="title">Title</label>
                         </div>
                         <div class="input-field col s6">
-                            <input placeholder="Enter Description" id="desc_rest" type="text" class="validate">
-                            <label for="desc_rest">Description</label>
+                            <input placeholder="Enter SubTitle" id="subTitle" type="text" class="validate">
+                            <label for="subTitle">Sub Title</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="Review" id="review" type="text" class="validate">
-                            <label for="review">Reviews</label>
+                            <input placeholder="Enter Path of Image" id="path" type="text" class="validate">
+                            <label for="path">Path</label>
                         </div>
-                        
+                    </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="email" id="email" type="email" class="validate">
-                            <label for="email">email</label>
+                            <input placeholder="Enter Description of Image" id="description" type="text" class="validate">
+                            <label for="description">Description</label>
                         </div>
                     </div>
                     <div class="row">
@@ -132,10 +88,7 @@
     </main>
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    </script>
-    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="js/script.js"></script>
 </body>

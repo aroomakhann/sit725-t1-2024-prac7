@@ -1,8 +1,8 @@
 {
-  "name": "sit725-prac4",
+  "name": "sit725-prac5",
   "version": "1.0.0",
-  "description": "Practical task for 4.2P",
-  "main": "index.js",
+  "description": "Practical task for 5.2C",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
