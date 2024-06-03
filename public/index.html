@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SIT 725 Prac 5</title>
     <meta name="description" content="MVC">
     <meta name="author" content="Arooma Khan">
+    
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Custom Style Sheet-->
+    
+    <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <!-- Navigation Bar -->
     <nav>
@@ -47,7 +47,6 @@
             </div>
         </div>
 
-
         <!-- Card Section -->
         <div class="container" id="card-section"></div>
 
@@ -57,24 +56,20 @@
                 <form class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input placeholder="Enter Title" id="title" type="text" class="validate">
-                            <label for="title">Title</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input placeholder="Enter SubTitle" id="subTitle" type="text" class="validate">
-                            <label for="subTitle">Sub Title</label>
+                            <input id="card_by" type="text" class="validate">
+                            <label for="card_by">Restaurant Name</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="Enter Path of Image" id="path" type="text" class="validate">
-                            <label for="path">Path</label>
+                            <input id="card_img" type="text" class="validate">
+                            <label for="card_img">Image</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="Enter Description of Image" id="description" type="text" class="validate">
-                            <label for="description">Description</label>
+                            <input id="card_desc" type="text" class="validate">
+                            <label for="card_desc">Description</label>
                         </div>
                     </div>
                     <div class="row">
@@ -92,5 +87,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="js/script.js"></script>
 </body>
-
 </html>

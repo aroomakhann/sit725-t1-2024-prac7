@@ -9,12 +9,13 @@ const client = new MongoClient(uri, {
   },
 });
 
-client.connect((err) => {
-  if (err) {
-    console.error("Failed to connect to MongoDB:", err);
-  } else {
-    console.log("Connected to MongoDB");
+async function runDBConnection() {
+  try {
+      await client.connect();
+      console.log("Connected to the database");
+  } catch (ex) {
+      console.error("Error connecting to the database:", ex);
   }
-});
+}
 
-module.exports = client;
+module.exports = { client, runDBConnection };

@@ -1,19 +1,22 @@
-let client = require('../dbConnection');
-let collection = client.db().collection('paris');
+const { client } = require('../dbConnection');
+const collection = client.db().collection('paris');
 
-function postParis(paris, callback) {
-    collection.insertOne(paris,callback).then(function(res, err){
-        if(!err)
-            callback(err,res);
-    });
+async function getAllParis() {
+    try {
+        return await collection.find({}).toArray();
+    } catch (error) {
+        console.error("Error retrieving data:", error);
+        throw error;
+    }
 }
 
-function getAllParis(callback) {
-    collection.find().toArray().then(function(res, err){
-        console.log(res);
-        callback(err,res);
-    });
+async function addParis(name, desc, img) {
+    try {
+        return await collection.insertOne({ name, desc, img });
+    } catch (error) {
+        console.error("Error adding paris:", error);
+        throw error;
+    }
 }
 
-
-module.exports = {postParis,getAllParis}
+module.exports = { getAllParis, addParis };
