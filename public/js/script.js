@@ -18,37 +18,22 @@ const submitForm = () => {
     const formData = {
         name: $('#card_title').val() + ' ' + $('#card_by').val(),
         desc: $('#card_desc').val(),
-        img: $('#card_img').val() 
+        img: $('#card_img').val()
     };
 
-    console.log("Form Data Submitted: ", formData);
-
-    postParis(formData);
-};
-
-function postParis(paris) {
-    $.ajax({
-        url: '/api/paris',
-        type: 'POST',
-        data: paris,
-        success: (result) => {
-            if (result.statusCode === 200) {
-                alert('Form submitted successfully!');
-                getAllParis();
-                $('#modal1').modal('close');
-            } else {
-                alert('Failed to add Paris. Please try again.');
-            }
-        },
-        error: () => {
-            alert('Error occurred while submitting form.');
+    $.post('/api/addParis', formData, (response) => {
+        if (response.status === 200) {
+            getAllParis();
+            $('#modal1').modal('close');
+        } else {
+            alert('Failed to add card. Please try again.');
         }
     });
-}
+};
 
 const getAllParis = () => {
     $.get('/api/paris', (response) => {
-        if (response.statusCode === 200) {
+        if (response.status === 200) {
             addParis(response.data);
         }
     });
@@ -67,9 +52,9 @@ $(document).ready(function () {
     $('#clickMeButton').click(() => {
         $('#modal1').modal('open');
     });
-    getAllParis();
     $('.modal').modal();
     $('#formSubmit').click(() => {
         submitForm();
     });
+    getAllParis(); // Call after all functions are defined
 });
