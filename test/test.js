@@ -1,15 +1,14 @@
 const request = require("request");
-
 require('../server.js');
 
-const baseUrl = 'http://localhost:8000';
+const baseUrl = 'http://localhost:3100';
 
 describe('API Tests', function () {
-    describe('GET /api/paris', function () {
-        it('should return status code 200 and an array of cards', function (done) {
+    describe('GET /api/cat', function () {
+        it('should return status code 200 and an array of cats', function (done) {
             import('chai').then(chai => {
                 const expect = chai.expect;
-                request.get(`${baseUrl}/api/paris`, function (error, response, body) {
+                request.get(`${baseUrl}/api/cats`, function (error, response, body) {
                     expect(response.statusCode).to.equal(200);
                     expect(JSON.parse(body).data).to.be.an('array');
                     done();
@@ -23,22 +22,21 @@ describe('API Tests', function () {
 });
 
 describe('API Tests', function () {
-    describe('POST /api/addParis', function () {
+    describe('POST /api/addCat', function () {
         it('should return status code 200 and success message', function (done) {
             import('chai').then(chai => {
                 const expect = chai.expect;
-                const newCard = {
-                    name: 'Eiffel Tower',
-                    desc: 'Iconic landmark of Paris',
-                    img: 'https://example.com/eiffel-tower.jpg'
+                const newCat = {
+                    name: 'Test Cat',
+                    desc: 'Test Desc',
                    
                 };
                 request.post({
-                    url: `${baseUrl}/api/addParis`,
-                    json: newCard
+                    url: `${baseUrl}/api/addCat`,
+                    json: newCat
                 }, function (error, response, body) {
                     expect(response.statusCode).to.equal(200);
-                    expect(body.message).to.equal('Paris added successfully');
+                    expect(body.message).to.equal('Cat added successfully');
                     done();
                 });
             }).catch(err => {

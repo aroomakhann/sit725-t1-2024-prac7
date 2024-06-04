@@ -1,8 +1,14 @@
-const express = require('express');
-const router = express.Router();
-const controller = require('../controllers/controller');
+let express = require('express');
+let router = express.Router();
+let controller = require('../controllers/controller');
 
-router.get('/paris', controller.getAllParis);
-router.post('/paris', controller.addParis);
 
-module.exports = router;
+  router.post("/api/cat", (req, res) => {
+    controller.postCat(req,res);
+  });
+  
+router.get("/api/cat", (req, res) => {
+  controller.getAllCats(req,res);
+  });
+
+  module.exports = router;

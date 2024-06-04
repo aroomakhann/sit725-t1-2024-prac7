@@ -1,22 +1,33 @@
-const express = require('express');
-const app = express();
-module.exports = { app };
+let express = require("express");
+let app = express();
+let port = process.env.port || 3100;
 
-const port = process.env.PORT || 8000;
-const { runDBConnection } = require('./dbconnection');
-const router = require('./routers/router');
+require("./dbConnection");
+let router = require("./routers/router");
 
-app.use(express.static(__dirname + '/public'));
+const { Socket } = require("socket.io");
+let http = require("http").createServer(app);
+let io = require("socket.io")(http);
+
+app.use(express.static(__dirname + "/"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use('/', router);
+app.use("/api/cat", router);
+
+io.on("connection", (socket) => {
+  console.log("Client is Connected");
+  socket.on("disconnect", () => {
+    console.log("Client is  Disconnected");
+  });
+  setInterval(() => {
+    socket.emit("number", parseInt(Math.random() * 10));
+  }, 1000);
+});
 
 app.get('/favicon.ico', (req, res) => {
     res.status(204).end();
 });
 
-
-app.listen(port, () => {
-    console.log('Express server has started on port ' + port);
-    runDBConnection(); 
+http.listen(port, () => {
+  console.log("Express server has started on port: " + port);
 });

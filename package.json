@@ -1,7 +1,7 @@
 {
-  "name": "sit725-prac5",
+  "name": "sit725-prac7",
   "version": "1.0.0",
-  "description": "Practical task for 6.2D",
+  "description": "Practical task for 7.2P",
   "main": "server.js",
   "scripts": {
     "test": "mocha --reporter spec",
@@ -9,14 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aroomakhann/sit725-2024-t1-prac6.git"
+    "url": "git+https://github.com/aroomakhann/sit725-t1-2024-prac7.git"
   },
   "author": "Arooma Khan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aroomakhann/sit725-2024-t1-prac6/issues"
   },
-  "homepage": "https://github.com/aroomakhann/sit725-2024-t1-prac6#readme",
   "dependencies": {
     "express": "^4.19.2",
     "mongodb": "^6.6.1"

@@ -3,29 +3,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SIT 725 Prac 5</title>
+    <title>SIT 725 Prac 7</title>
     <meta name="description" content="MVC">
     <meta name="author" content="Arooma Khan">
     
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!--Navigation Bar-->
     <nav>
-        <div class="nav-wrapper navbar">
-            <a href="#" class="brand-logo"><img class="user-image-size" src="images/macaron_PNG56.png" alt="Brand Logo"></a>
+        <div class="nav-wrapper navbar-size">
+            <a href="#" class="brand-logo"><img class="user-image-size" src="images/macaron_PNG56.png" /></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a target="_blank" href="https://littlefrenchheart.com/the-romance-of-paris/">Paris Story</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
+        <!-- Main Content -->
+
     <main class="main-body">
         <div class="container">
             <div class="row">
@@ -33,44 +36,43 @@
                     <h1 id="heading">Food Diaries</h1>
                     <p class="flow-text">This is a website that will present the three most popular food places in Paris</p>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col s12 center-align">
                     <img class="materialboxed materialboxed-image" src="images/Paris wee.jpeg" alt="Paris Image">
                 </div>
-            </div>
-            <div class="row">
                 <div class="col s12 center-align">
-                    <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1">
-                        <i class="material-icons left">auto_fix_high</i>Click Me</a>
+                    <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton"
+                        data-target="modal1"><i class="material-icons left">auto_fix_high</i>Click Me</a>
+
                 </div>
-            </div>
         </div>
 
-        <!-- Card Section -->
-        <div class="container" id="card-section"></div>
-
-        <!-- Modal Structure -->
+                <!-- Modal Structure -->
         <div id="modal1" class="modal modal-fixed-footer">
             <div class="row modal-content">
                 <form class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="card_by" type="text" class="validate">
-                            <label for="card_by">Restaurant Name</label>
+                            <input placeholder="Enter Title" id="title" type="text" class="validate">
+                            <label for="title">title</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="Enter SubTitle" id="subTitle" type="text" class="validate">
+                            <label for="subTitle">Sub Title</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="card_img" type="text" class="validate">
-                            <label for="card_img">Image</label>
+                            <input placeholder="Enter Path of Image" id="path" type="text" class="validate">
+                            <label for="path">Path</label>
                         </div>
-                    </div>
+                        
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="card_desc" type="text" class="validate">
-                            <label for="card_desc">Description</label>
+                            <input placeholder="Enter Description of Image" id="description" type="text" class="validate">
+                            <label for="description">Description</label>
                         </div>
+                    </div>
+                
                     </div>
                     <div class="row">
                         <div class="input-field col s12 center-align">
@@ -80,11 +82,12 @@
                 </form>
             </div>
         </div>
-    </main>
+ <!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/socket.io/socket.io.js"></script> 
+<script src="js/script.js"></script>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="js/script.js"></script>
 </body>
+
 </html>

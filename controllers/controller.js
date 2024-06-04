@@ -1,24 +1,26 @@
-const Paris = require('../models/paris');
+let collection = require("../models/cat");
 
-async function getAllParis(req, res) {
-    try {
-        const paris = await Paris.getAllParis();
-        res.json({ statusCode: 200, data: paris, message: 'Get all paris success' });
-    } catch (error) {
-        console.error("Error retrieving data:", error);
-        res.status(500).json({ statusCode: 500, message: "Internal Server Error" });
+const postCat = (req, res) => {
+  let cat = req.body;
+  collection.postCat(cat, (err, result) => {
+    if (!err) {
+      res.json({ 
+        statusCode: 201, 
+        data: result, 
+        message: "Successfull" });
     }
-}
-
-async function addParis(req, res) {
-    try {
-        const { name, desc, img } = req.body;
-        await Paris.addParis(name, desc, img);
-        res.json({ statusCode: 200, message: 'Paris added successfully' });
-    } catch (error) {
-        console.error("Error adding paris:", error);
-        res.status(500).json({ statusCode: 500, message: "Internal Server Error" });
+  });
+};
+const getAllCats = (req, res) => {
+  collection.getAllCats((err, result) => {
+    if (!err) {
+      res.json({
+        statusCode: 200,
+        data: result,
+        message: "Get cats successfully",
+      });
     }
-}
+  });
+};
 
-module.exports = { addParis, getAllParis };
+module.exports = {postCat, getAllCats};

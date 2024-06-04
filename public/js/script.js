@@ -52,9 +52,14 @@ $(document).ready(function () {
     $('#clickMeButton').click(() => {
         $('#modal1').modal('open');
     });
+    getAllParis();
     $('.modal').modal();
     $('#formSubmit').click(() => {
         submitForm();
+        alert("Card posted successfully");
+    })
+
+    socket.on('randomNumber', (msg) => {
+        console.log('Random Number: ' + msg);
     });
-    getAllParis(); // Call after all functions are defined
 });
